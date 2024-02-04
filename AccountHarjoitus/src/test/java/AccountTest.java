@@ -32,5 +32,6 @@ class AccountTest {
     void withdraw() {
         account.deposit(100);
         assertEquals(50, account.withdraw(50));
+        assertEquals(0, account.withdraw(51));
     }
 }

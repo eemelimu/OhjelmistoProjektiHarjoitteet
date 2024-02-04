@@ -5,6 +5,9 @@ public class Account {
         this.balance = 0;
     }
 
+    public double getBalance() {
+        return this.balance;
+    }
     public void deposit(double amount) {
         if (amount > 0) {
             this.balance += amount;
@@ -12,20 +15,11 @@ public class Account {
     }
 
     public double withdraw(double amount) {
-        if (amount > 0) {
-            if (this.balance - amount < 0) {
-                double allMoney = this.balance;
-                this.balance = 0;
-                return allMoney;
-            } else {
-                this.balance -= amount;
-                return amount;
-            }
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            return amount;
+        } else {
+            return 0;
         }
-        return 0;
-    }
-
-    public double getBalance() {
-        return this.balance;
     }
 }
