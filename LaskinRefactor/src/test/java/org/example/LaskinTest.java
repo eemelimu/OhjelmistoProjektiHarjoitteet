@@ -20,6 +20,11 @@ public class LaskinTest {
         laskin.nollaa();
     }
 
+    @AfterAll
+    public static void turnOffVirta() {
+        laskin.virtaOFF();
+    }
+
     @Test
     @DisplayName("Testaa nollaus")
     public void testLisaa() {
@@ -34,6 +39,19 @@ public class LaskinTest {
         laskin.lisaa(10);
         laskin.vahenna(2);
         assertEquals(8, laskin.annaTulos(), "Lukujen 10 ja 2 erotus väärin");
+    }
+
+    @Test
+    @DisplayName("Testaa neliö")
+    public void testNelio() {
+        laskin.nelio(5);
+        assertEquals(25, laskin.annaTulos(), "Luvun 5 neliö väärin");
+    }
+
+    @Test
+    @DisplayName("Testaa neliöjuuri")
+    public void testNeliojuuri() {
+        assertEquals(5, laskin.neliojuuri(25), DELTA, "Luvun 25 neliöjuuri väärin");
     }
 
     @Test
